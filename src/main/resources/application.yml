@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driverClassName: org.postgresql.Driver
+    url: jdbc:postgresql://imperva-postgres:5432/imperva
+    username: admin
+    password: pass123!
+    connection-timeout: 15
+    validation-query: select 1
+    test-on-borrow: true
+    initialization-mode: never
+  jpa:
+    database: PostgreSQL
+    show-sql: false
+    format_sql: true
+    hibernate:
+      naming_strategy: org.hibernate.cfg.DefaultComponentSafeNamingStrategy
+      ddl-auto: validate
+      use-new-id-generator-mappings: true
+    properties:
+      hibernate:
+        temp:
+          use_jdbc_metadata_defaults: false

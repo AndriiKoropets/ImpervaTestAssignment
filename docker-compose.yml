@@ -1,0 +1,23 @@
+version: '2'
+services:
+
+  imperva-postgres:
+    image: postgres
+    container_name: imperva-postgres
+    hostname: imperva-postgres
+    environment:
+      POSTGRES_DB: imperva
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: pass123!
+    ports:
+      - "5432:5432"
+    volumes:
+      - /usr/share/imperva/postgresql:/var/lib/imperva/data
+
+  imperva-processor:
+    image: dockerklown/imperva-processor:latest
+    container_name: imperva-processor
+    depends_on:
+      - imperva-postgres
+    ports:
+      - "8080:8080"
