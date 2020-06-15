@@ -14,10 +14,10 @@ services:
     volumes:
       - /usr/share/imperva/postgresql:/var/lib/imperva/data
 
-  imperva-processor:
-    image: dockerklown/imperva-processor:latest
-    container_name: imperva-processor
-    depends_on:
-      - imperva-postgres
-    ports:
-      - "8080:8080"
+#  imperva-processor:
+#    image: dockerklown/imperva-processor:latest
+#    container_name: imperva-processor
+#    depends_on:
+#      - imperva-postgres
+#    ports:
+#      - "8080:8080"
