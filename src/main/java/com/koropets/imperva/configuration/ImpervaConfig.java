@@ -20,8 +20,8 @@ public class ImpervaConfig {
     }
 
     @Bean
-    public VendorMachineMapper vendorMachineMapper() {
-        return new VendorMachineMapper();
+    public VendorMachineMapper vendorMachineMapper(BeverageMapper beverageMapper) {
+        return new VendorMachineMapper(beverageMapper);
     }
 
     @Bean

@@ -18,5 +18,6 @@ public class Beverage {
     private String consist;
     private String codeBarres;
     private double price;
+    @JsonIgnore
     private VendorMachine vendorMachine;
 }

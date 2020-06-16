@@ -4,6 +4,7 @@ import com.koropets.imperva.dto.Beverage;
 import com.koropets.imperva.dto.VendorMachine;
 import com.koropets.imperva.service.AdminService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -24,6 +25,21 @@ public class AdminController {
     @GetMapping(value = "/vendorMachines")
     public List<VendorMachine> getAllVendorMachines() {
         return adminService.getAllVendorMachines();
+    }
+
+    @GetMapping(value = "/vendorMachines/{vendor_machine_uuid}")
+    public VendorMachine getAllVendorMachineByUuid(@PathVariable(name = "vendor_machine_uuid") String vendorMachineUuid) {
+        return adminService.getAllVendorMachineByUuid(vendorMachineUuid);
+    }
+
+    @PostMapping(value = "/vendorMachines")
+    public VendorMachine addVendorMachine(@RequestBody VendorMachine vendorMachine) {
+        return adminService.addVendorMachine(vendorMachine);
+    }
+
+    @DeleteMapping(value = "/vendorMachines/{machine_uuid}")
+    public void addVendorMachine(@PathVariable(name = "machine_uuid") String vendorMachineUuid) {
+        adminService.deleteVendorMachineByUuid(vendorMachineUuid);
     }
 
     @GetMapping(value = "/vendorMachines/beverages/{vendor_machine_uuid}")

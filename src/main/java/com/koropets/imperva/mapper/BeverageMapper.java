@@ -10,6 +10,8 @@ public class BeverageMapper extends Mapper<BeverageEntity, Beverage> {
                 .name(e.getName())
                 .address(e.getAddress())
                 .consist(e.getConsist())
+                .price(e.getPrice())
+                .codeBarres(e.getCodeBarres())
                 .build();
     }
 
@@ -20,6 +22,8 @@ public class BeverageMapper extends Mapper<BeverageEntity, Beverage> {
                 .name(dto.getName())
                 .address(dto.getAddress())
                 .consist(dto.getConsist())
+                .price(dto.getPrice())
+                .codeBarres(dto.getCodeBarres())
                 .build();
     }
 }
