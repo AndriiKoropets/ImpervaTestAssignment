@@ -1,10 +1,8 @@
 package com.koropets.imperva.configuration;
 
 import com.koropets.imperva.mapper.BeverageMapper;
-import com.koropets.imperva.mapper.ProductBeverageMapper;
 import com.koropets.imperva.mapper.VendorMachineMapper;
 import com.koropets.imperva.repository.BeverageRepository;
-import com.koropets.imperva.repository.ProductBeverageRepository;
 import com.koropets.imperva.repository.VendorMachineRepository;
 import com.koropets.imperva.service.AdminService;
 import com.koropets.imperva.service.AdminServiceImpl;
@@ -27,15 +25,11 @@ public class ImpervaConfig {
     }
 
     @Bean
-    public ProductBeverageMapper productBeverageMapper() {
-        return new ProductBeverageMapper();
-    }
-
-    @Bean
-    public AdminService adminService(ProductBeverageRepository productBeverageRepository,
-                                     VendorMachineRepository vendorMachineRepository,
-                                     VendorMachineMapper vendorMachineMapper) {
-        return new AdminServiceImpl(productBeverageRepository, vendorMachineRepository, vendorMachineMapper);
+    public AdminService adminService(VendorMachineRepository vendorMachineRepository,
+                                     BeverageRepository beverageRepository,
+                                     VendorMachineMapper vendorMachineMapper,
+                                     BeverageMapper beverageMapper) {
+        return new AdminServiceImpl(vendorMachineRepository, beverageRepository, vendorMachineMapper, beverageMapper);
     }
 
     @Bean

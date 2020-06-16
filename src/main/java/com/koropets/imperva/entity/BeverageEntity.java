@@ -31,8 +31,10 @@ public class BeverageEntity {
     private String name;
     private String address;
     private String consist;
+    private String codeBarres;
+    private double price;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "product_beverage_id", referencedColumnName = "id")
-    private ProductBeverageEntity productBeverage;
+    @JoinColumn(name = "vendor_machine_id")
+    private VendorMachineEntity vendorMachine;
 
 }

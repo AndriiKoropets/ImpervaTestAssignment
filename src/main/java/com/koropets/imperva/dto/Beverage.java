@@ -16,4 +16,7 @@ public class Beverage {
     private String name;
     private String address;
     private String consist;
+    private String codeBarres;
+    private double price;
+    private VendorMachine vendorMachine;
 }

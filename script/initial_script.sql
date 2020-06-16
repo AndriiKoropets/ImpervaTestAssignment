@@ -1,25 +1,16 @@
-CREATE TABLE IF NOT EXISTS Vendor_Machine(
-    id bigint PRIMARY KEY,
-    uuid varchar(36) NOT NULL UNIQUE,
-    location varchar(255) NOT NULL,
-    product_beverage_id bigint
-);
-
 CREATE TABLE IF NOT EXISTS Beverages(
     id bigint PRIMARY KEY,
     name varchar(50) NOT NULL,
     address varchar(100) NOT NULL,
     consist varchar(255) NOT NULL,
-    product_beverage_id bigint
-);
-
-CREATE TABLE IF NOT EXISTS Product_Beverage(
-    id bigint,
-    beverage_id integer NOT NULL REFERENCES Beverages(id),
-    vendor_machine_id integer REFERENCES Vendor_Machine(id),
     code_barres varchar(100) UNIQUE,
     price double precision NOT NULL,
-    PRIMARY KEY (id, beverage_id, vendor_machine_id)
+);
+
+CREATE TABLE IF NOT EXISTS Vendor_Machine(
+    id bigint,
+    uuid varchar(36) NOT NULL UNIQUE,
+    location varchar(255) NOT NULL,
 );
 
 INSERT INTO Vendor_Machine(id, uuid, location) VALUES (1, '167e9020-af10-11ea-b3de-0242ac130001', 'Kyiv');
