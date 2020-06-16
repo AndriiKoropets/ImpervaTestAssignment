@@ -21,7 +21,7 @@ public class AdminController {
     @Autowired
     private AdminService adminService;
 
-    @GetMapping(value = "/vendorMachines/")
+    @GetMapping(value = "/vendorMachines")
     public List<VendorMachine> getAllVendorMachines() {
         return adminService.getAllVendorMachines();
     }

@@ -1,5 +1,6 @@
 package com.koropets.imperva.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,6 +13,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ProductBeverage {
+    @JsonIgnore
     private int id;
     private List<Beverage> beverages;
     private List<VendorMachine> vendorMachines;
