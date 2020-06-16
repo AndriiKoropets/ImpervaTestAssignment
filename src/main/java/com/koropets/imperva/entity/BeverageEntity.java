@@ -1,6 +1,5 @@
 package com.koropets.imperva.entity;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -11,13 +10,11 @@ import lombok.Setter;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-
-import static javax.persistence.GenerationType.SEQUENCE;
 
 @Entity
 @Table(name = "Beverages")
@@ -29,14 +26,13 @@ import static javax.persistence.GenerationType.SEQUENCE;
 public class BeverageEntity {
 
     @Id
-    @SequenceGenerator(name = "beverage__id_seq", sequenceName = "beverage_id_seq")
-    @GeneratedValue(strategy = SEQUENCE, generator = "beverage__id_seq")
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private long id;
     private String name;
     private String address;
-    private String consists;
+    private String consist;
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "beverage_id")
+    @JoinColumn(name = "product_beverage_id", referencedColumnName = "id")
     private ProductBeverageEntity productBeverage;
 
 }

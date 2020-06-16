@@ -9,7 +9,7 @@ public class BeverageMapper extends Mapper<BeverageEntity, Beverage> {
         return Beverage.builder()
                 .name(e.getName())
                 .address(e.getAddress())
-                .consist(e.getConsists())
+                .consist(e.getConsist())
                 .build();
     }
 
@@ -19,7 +19,7 @@ public class BeverageMapper extends Mapper<BeverageEntity, Beverage> {
                 .id(dto.getId())
                 .name(dto.getName())
                 .address(dto.getAddress())
-                .consists(dto.getConsist())
+                .consist(dto.getConsist())
                 .build();
     }
 }
